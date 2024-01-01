@@ -261,8 +261,7 @@ class Table(object):
         row = self._sync_columns(row, ensure, types=types)
         if self._check_ensure(ensure):
             self.create_index(keys)
-        row_count = self.update(row, keys, ensure=False, return_count=True)
-        if row_count == 0:
+        if (row_count := self.update(row, keys, ensure=False, return_count=True)) == 0:
             return self.insert(row, ensure=False)
         return True
 
