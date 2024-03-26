@@ -473,7 +473,7 @@ class Table(object):
         """
         name = self._get_column_name(name)
         if self.has_column(name):
-            log.debug("Column exists: %s" % name)
+            log.debug("Column exists: %s", name)
             return
         self._sync_table((Column(name, type, **kwargs),))
 
